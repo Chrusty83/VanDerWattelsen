@@ -1,9 +1,16 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-  <meta charset="UTF-8">
-  <title>MP3 Direktplayer</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+  <title>Passwortgeschützt</title>
+  <script>
+    const password = "meinpasswort";
+    const check = prompt("Bitte Passwort eingeben:");
+    if (check !== password) {
+      document.write("Zugang verweigert.");
+      throw new Error("Falsches Passwort");
+    }
+  </script>
 </head>
 <body style="display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100vh; font-family: sans-serif;">
   <h2>🎵 Geheimnis #1</h2>
