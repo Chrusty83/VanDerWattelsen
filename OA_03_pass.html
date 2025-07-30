@@ -1,13 +1,21 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-  <meta charset="UTF-8" />
-  <title>MP3 Player</title>
+<meta charset="UTF-8">
+  <title>Passwortgeschützt</title>
+  <script>
+    const password = "meinpasswort";
+    const check = prompt("Bitte Passwort eingeben:");
+    if (check !== password) {
+      document.write("Zugang verweigert.");
+      throw new Error("Falsches Passwort");
+    }
+  </script>
 </head>
-<body style="text-align:center; margin-top:50px;">
-  <h2>Schatzkarte</h2>
-  <audio controls autoplay>
-    <source src="0A_01.mp3" type="audio/mpeg" />
+<body style="display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100vh; font-family: sans-serif;">
+  <h2>🎵 Geheimnis #17</h2>
+  <audio id="player" controls autoplay style="width: 80%;">
+    <source src="OA_01.mp3" type="audio/mpeg">
     Dein Browser unterstützt kein Audio.
   </audio>
 </body>
