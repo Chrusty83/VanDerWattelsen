@@ -2,23 +2,36 @@
 <html lang="de">
 <head>
   <meta charset="UTF-8">
-  <title>Passwortgeschützt</title>
-  <script>
-    const password = "raumstation";
-    const eingabe = prompt("Bitte Passwort eingeben:");
-
-    if (eingabe !== password) {
-      document.write("<h2>Zugang verweigert</h2>");
-      // Seite sofort abbrechen
-      throw new Error("Falsches Passwort");
+  <title>MP3 Passwortgeschützt</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      font-family: sans-serif;
+      text-align: center;
+      margin-top: 50px;
     }
-  </script>
+  </style>
 </head>
 <body>
-  <h2> Wo geht's denn jetzt weiter? </h2>
-  <audio controls autoplay style="width: 80%;">
-    <source src="OA_03.mp3" type="audio/mpeg">
-    Dein Browser unterstützt kein Audio.
-  </audio>
+  <div id="content"></div>
+
+  <script>
+    const password = "raumstation"; // dein gewünschtes Passwort
+    const eingabe = prompt("Bitte Passwort eingeben:");
+
+    if (eingabe === password) {
+      // Wenn Passwort korrekt ist: Player anzeigen
+      document.getElementById("content").innerHTML = `
+        <h2> Wo geht's denn jetzt weiter? </h2>
+        <audio controls autoplay style="width: 80%;">
+          <source src="OA_03.mp3" type="audio/mpeg">
+          Dein Browser unterstützt kein Audio.
+        </audio>
+      `;
+    } else {
+      // Wenn Passwort falsch ist: Nur Fehlermeldung anzeigen
+      document.getElementById("content").innerHTML = "<h2>Zugang verweigert</h2>";
+    }
+  </script>
 </body>
 </html>
