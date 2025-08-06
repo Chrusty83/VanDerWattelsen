@@ -1,16 +1,37 @@
-<!-- 31.07.2025: NFC Tag über den Gleisen Schnellbahntrasse -->
 <!DOCTYPE html>
 <html lang="de">
 <head>
   <meta charset="UTF-8">
-  <title>MP3 Direktplayer</title>
+  <title>MP3 Passwortgeschützt</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      font-family: sans-serif;
+      text-align: center;
+      margin-top: 50px;
+    }
+  </style>
 </head>
-<body style="display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100vh; font-family: sans-serif;">
-  <h2> Kosmos Rechenaufgabe der Galaxien   </h2>
-  <audio id="player" controls autoplay style="width: 80%;">
-    <source src="OA_07.mp3" type="audio/mpeg">
-    Dein Browser unterstützt kein Audio.
-  </audio>
+<body>
+  <div id="content"></div>
+
+  <script>
+    const password = "20"; // dein gewünschtes Passwort
+    const eingabe = prompt("Bitte Passwort eingeben:");
+
+    if (eingabe === password) {
+      // Wenn Passwort korrekt ist: Player anzeigen
+      document.getElementById("content").innerHTML = `
+        <h2> Wo geht's denn jetzt weiter? </h2>
+        <audio controls autoplay style="width: 80%;">
+          <source src="OA_07.mp3" type="audio/mpeg">
+          Dein Browser unterstützt kein Audio.
+        </audio>
+      `;
+    } else {
+      // Wenn Passwort falsch ist: Nur Fehlermeldung anzeigen
+      document.getElementById("content").innerHTML = "<h2>Zugang verweigert</h2>";
+    }
+  </script>
 </body>
 </html>
